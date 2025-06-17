@@ -9,8 +9,7 @@ from langchain.chains.question_answering import load_qa_chain
 from langchain_groq import ChatGroq
 
 def main():
-    load_dotenv()
-    os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
+    os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
     st.set_page_config(page_title="Chat with your PDF")
     st.header("Chat with your PDF 🤖")
 
