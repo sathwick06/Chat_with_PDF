@@ -1,3 +1,4 @@
+from dotenv import load_dotenv
 import os
 import streamlit as st
 from pypdf import PdfReader
@@ -8,7 +9,8 @@ from langchain.chains.question_answering import load_qa_chain
 from langchain_groq import ChatGroq
 
 def main():
-    os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
+    load_dotenv()
+    os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
     st.set_page_config(page_title="Chat with your PDF")
     st.header("Chat with your PDF 🤖")
 
